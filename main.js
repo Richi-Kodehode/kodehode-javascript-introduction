@@ -14,6 +14,8 @@ Read the terminal output before and after to see the difference
 
 ******************************************************************************/
 
+import { textChangeRangeIsUnchanged } from "typescript";
+
 export function start(){
   
   return true
@@ -129,8 +131,8 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
-  //your code here
+export const cleanAndFun = (text) => {
+  return text.replace("hard", "fun").trim();
 };
 
 /******************************************************************************
@@ -153,9 +155,14 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
-  //your code here
+export function marvelEditor(array) {
+  array.shift();
+  array.splice(2, 1, "Skrull");
+  array.splice(0, 2, "Captain America");
+  return array.join("💪"); 
+
 }
+
 
 /******************************************************************************
 7.
@@ -184,8 +191,16 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
-  //your code here
+export function coolMaker(input) {
+  if (typeof input === "string") {
+    return `😎${input}😎`;
+} else if (typeof input === "number") {
+    return `😎${input * 2}😎`;
+} else if (typeof input === "boolean") {
+    return input ? "😎Yeah😎" : "😎Chill😎";
+} else {
+    return "😎Primitive values only😎";
+}
 }
 
 /******************************************************************************
@@ -211,6 +226,6 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
-export const addOrRemove = () => {
-  //your code here
+export const addOrRemove = (arr, str) => {
+
 };
